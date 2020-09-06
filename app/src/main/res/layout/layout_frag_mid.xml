@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:clipChildren="false"
+        android:background="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorBlack"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:id="@+id/toolbarLayout"
+            >
+<!--
+            <ImageView
+                android:id="@+id/imgV_switch"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_switch"
+                android:clickable="true"
+                android:focusable="true"
+
+                />
+-->
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/btn_switch"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/button_grad"
+                android:textColor="@color/colorWhite"
+                android:text="P"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:typeface="sans"/>
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Project Title"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:layout_marginStart="20dp"
+                android:layout_toRightOf="@+id/btn_switch"
+                />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imgV_search"
+                android:src="@drawable/ic_search"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="25dp"
+                />
+        </RelativeLayout>
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_mid_frag_main"
+            android:layout_above="@+id/nav_bottom"
+            android:layout_below="@+id/toolbarLayout"
+            android:layout_marginTop="20dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingBtnId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/nav_bottom"
+            android:layout_marginBottom="25dp"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/ic_float_btn2"
+            app:fabSize="normal"
+            app:borderWidth="1dp"
+            app:backgroundTint="@color/colorWhite"
+            app:elevation="10dp"
+            />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorBlack"
+            app:itemIconTint="@color/colorWhite"
+            app:itemTextColor="@color/colorWhite"
+            app:menu="@menu/bottom_nav_menu" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
