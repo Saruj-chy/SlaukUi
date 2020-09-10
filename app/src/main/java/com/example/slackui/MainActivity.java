@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 
 import com.example.slackui.Adapter.FragmentAdapter;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout2.addTab(tabLayout2.newTab().setText("Fragment 2"));
         tabLayout2.addTab(tabLayout2.newTab().setText("Fragment 3"));
         tabLayout2.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout2.setVisibility(View.GONE);
 
 
 

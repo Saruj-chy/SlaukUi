@@ -1,4 +1,4 @@
-package com.example.slackui;
+package com.example.slackui.Constants;
 
 public class Constant {
 

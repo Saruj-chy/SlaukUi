@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.slackui.Class.SettingModel;
 import com.example.slackui.Fragments.FirstFragment;
+import com.example.slackui.Class.SettingModels;
 import com.example.slackui.R;
 
 import java.util.List;
@@ -22,14 +22,14 @@ public class SettingsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
 
     private Context mCtx;
-    private List<SettingModel> settingList;
+    private List<SettingModels> settingList;
     String logName, logDomain ;
 
     FirstFragment fragment;
     SharedPreferences sharedPreferences ;
     String positionId ;
 
-    public SettingsRecyclerAdapter(Context mCtx, List<SettingModel> settingList, FirstFragment settingInterface) {
+    public SettingsRecyclerAdapter(Context mCtx, List<SettingModels> settingList, FirstFragment settingInterface) {
         this.mCtx = mCtx;
         this.settingList = settingList;
         this.fragment = settingInterface;
@@ -53,7 +53,7 @@ public class SettingsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
-        final SettingModel settings = settingList.get(position);
+        final SettingModels settings = settingList.get(position);
 
         ((PostViewHolder) holder).bind(settings, position);
 
@@ -82,18 +82,18 @@ public class SettingsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         }
 
-        public void bind(final SettingModel settings, final int position){
-            String name= settings.getName() ;
-            String combinedName = "" ;
-            String[] parts = name.split(" ");
-            for(int i=0; i<parts.length; i++){
-                CharSequence firstChar = parts[i].subSequence(0, 1) ;
-                combinedName = combinedName + firstChar;
-            }
+        public void bind(final SettingModels settings, final int position){
+//            String name= settings.getName() ;
+//            String combinedName = "" ;
+//            String[] parts = name.split(" ");
+//            for(int i=0; i<parts.length; i++){
+//                CharSequence firstChar = parts[i].subSequence(0, 1) ;
+//                combinedName = combinedName + firstChar;
+//            }
 
 
-            textViewLogoName.setText(combinedName);
-            textViewLogoText.setText(settings.getName());
+            textViewLogoName.setText(settings.getSection_identifier());
+            textViewLogoText.setText(settings.getSection_title());
 
 //========    give position
             positionId = sharedPreferences.getString("positionId", "");
@@ -108,8 +108,9 @@ public class SettingsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
             textViewLogoName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {
-                    logName= settings.getName();
-                    logDomain = settings.getDomain() ;
+                    logName= settings.getSection_title();
+//                    logDomain = settings.getSection_identifier() ;
+                    logDomain = "agamilabs.slack.com" ;
 
                     fragment.sharedSaved(sharedPreferences,"positionId", String.valueOf(position));
                     fragment.Finish();
